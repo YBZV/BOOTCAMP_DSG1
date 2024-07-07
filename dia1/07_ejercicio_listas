@@ -1,0 +1,8 @@
+lista=[]
+i = 1
+while i <= 5:
+    num = int(input('ingrese un numero: '))
+    lista.append(num)
+    i+=1
+print('los numeros ingresados son:',(lista))
+print("el numero mayor es:", max(lista))
