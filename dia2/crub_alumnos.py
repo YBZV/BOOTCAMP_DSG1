@@ -29,10 +29,24 @@ while(opcion < 5):
         print("="*ANCHO)
         print(" "*10 + "[1] REGISTRAR ALUMNO")
         print("="*ANCHO)
+        nombre = input("NOMBRE: ")
+        email = input("E MAIL: ")
+        celular = input("celular: ")
+        dic_nuevo_alumno = {
+            'nombre':nombre,
+            'email':email,
+            'celular':celular
+        }
+        lista_alumnos.append(dic_nuevo_alumno)
+        print("ALUMNO REGISTRADO CON EXITO")
     elif (opcion == 2):
         print("="*ANCHO)
         print(" "*10 + "[2] MOSTRAR ALUMNO")
         print("="*ANCHO)
+        cabeceras = ["NOMBRE", "EMAIL","CELULAR"]
+        tabla = [alumno.values() for alumno in lista_alumnos]
+        print(tabulate.tabulate(tabla,headers=cabeceras,tablefmt="grid"))
+        input("presiona ENTER para continuar...")
     elif (opcion == 3):
         print("="*ANCHO)
         print(" "*10 + "[3] ACTUALIZAR ALUMNO")
