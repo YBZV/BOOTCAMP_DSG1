@@ -1,6 +1,7 @@
 import os
 import tabulate
 import time
+from librerias.lib_empresas import mostrar_menu,buscar_empresa
 
 lista_empresa = [
               {
@@ -13,17 +14,7 @@ ANCHO = 50
 opcion = 0
 while(opcion < 5):
     os.system("clear")
-    print("="*ANCHO)
-    print(" " * 10 + "CRUD DE EMPRESAS")
-    print("="*ANCHO)
-    print("""
-          [1] REGISTRAR EMPRESA
-          [2] MOSTRAR EMPRESA
-          [3] ACTUALIZAR EMPRESA
-          [4] ELIMINAR EMPRESA
-          [5] SALIR
-    """)
-    print("="*ANCHO)
+    mostrar_menu(ANCHO)
     opcion = int(input("INGRESE LA OPCION : "))
     os.system("clear")
     if(opcion == 1):
@@ -54,11 +45,7 @@ while(opcion < 5):
         print("="*ANCHO)
         valor_busqueda = input('INGRESE RAZON SOCIAL DEL EMPRESA A ACTUALIZAR :')
         posicion_busqueda = -1
-        for posicion in range(len(lista_empresa)):
-            dic_empresa = lista_empresa[posicion]
-            if valor_busqueda in dic_empresa.values():
-               posicion_busqueda = posicion
-               break
+        posicion_busqueda = buscar_empresa(valor_busqueda,lista_empresa)
         if posicion_busqueda == -1:
             print("NO SE ENCONTRO LA EMPRESA SOLICITADO") 
         else:
@@ -78,12 +65,7 @@ while(opcion < 5):
         print(" "*10 + "[4] ELIMINAR EMPRESA")
         print("="*ANCHO)
         valor_busqueda = input('INGRESE RAZON SOCIAL DE LA EMPRESA A ELIMINAR :')
-        posicion_busqueda = -1
-        for posicion in range(len(lista_empresa)):
-            dic_empresa = lista_empresa[posicion]
-            if valor_busqueda in dic_empresa.values():
-                posicion_busqueda = posicion
-                break
+        posicion_busqueda = buscar_empresa(valor_busqueda,lista_empresa)
         if posicion_busqueda == -1:
             print("NO SE ENCONTRO LA EMPRESA SOLICITADA")
         else:
