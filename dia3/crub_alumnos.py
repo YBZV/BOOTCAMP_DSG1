@@ -1,36 +1,16 @@
 import os
 import tabulate
 import time
-
+from librerias.lib_alumnos import *
 lista_alumnos = [
-              {
-                  'nombre':'yessica zegarra',
-                  'email': 'yessizegarrav@hotmail.com',
-                  'celular':'954079097'
-              }
-              ]
+    {
+        'nombre':'yessica zegarra',
+        'email': 'yessizegarrav@hotmail.com',
+        'celular':'954079097'
+    }
+]
 ANCHO = 50
 opcion = 0
-def mostrar_menu(ancho):
-    print("="*ancho)
-    print(" " * 10 + "CRUD DE ALUMNOS")
-    print("="*ancho)
-    print("""
-          [1] REGISTRAR ALUMNO
-          [2] MOSTRAR ALUMNO
-          [3] ACTUALIZAR ALUMNO
-          [4] ELIMINAR ALUMNO 
-          [5] SALIR
-    """)
-    print("="*ancho)
-def buscar_alumnos(valor_busqueda,listado):
-    posicion_busqueda = -1
-    for posicion in range(len(lista_alumnos)):
-            dic_alumno = lista_alumnos[posicion]
-            if valor_busqueda in dic_alumno.values():
-               posicion_busqueda = posicion
-               break
-    return posicion_busqueda
 while(opcion < 5):
     os.system("clear")
     mostrar_menu(ANCHO)
