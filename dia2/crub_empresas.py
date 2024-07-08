@@ -1,15 +1,15 @@
 import os
 import tabulate
 import time
-from librerias.lib_empresas import mostrar_menu,buscar_empresa
+from librerias.lib_empresas import mostrar_menu,buscar_empresa,cargar_datos,grabar_datos
 
-lista_empresa = [
-              {
-                  'ruc':'123456789',
-                  'razon social': 'martel sac',
-                  'direccion':'calle arica 731'
-              }
-              ]
+f = open('empresas.txt','w')
+f = open('empresas.txt','r')
+str_empresa = f.read()
+f.close()
+
+lista_empresa = cargar_datos(str_empresa)
+
 ANCHO = 50
 opcion = 0
 while(opcion < 5):
@@ -74,6 +74,10 @@ while(opcion < 5):
     elif (opcion == 5):
         print("="*ANCHO)
         print(" "*10 + "[5] SALIR")
+        str_empresa = grabar_datos(lista_empresa)
+        fsalida = open('empresas.txt','w')
+        fsalida.write(str_empresa)
+        fsalida.close()
         print("="*ANCHO)
     else:
         print("="*ANCHO)
