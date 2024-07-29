@@ -1,13 +1,13 @@
 import mysql.connector 
 
 connection = mysql.connector.connect(user='root',password='root',host='localhost',database='db_codigo')
-print("estas conetcado a la base de datos")
-connection.close()
-#alumnos_cursor = conection.cursor()
-#alumnos_cursos.execute("insert into tbl_alumno(nombre,email,celular) values('yessica','yessi@gmail.com','7777770)")
-#connection.commit()
-#print("alumno insertado")
+print("estas conectado a la base de datos")
 
+alumnos_cursor = connection.cursor()
+alumnos_cursor.execute("insert into tbl_alumno(nombre,email,celular) values('yessica','yessi@gmail.com','7777770)")
+connection.commit()
+print("alumno insertado")
+connection.close()
 #alumnos_cursor.execute("select * from tbl_alumno")
 #resultado = alumnos_cursor.fetchall()
 #print(resultado)
